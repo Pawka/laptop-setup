@@ -1,0 +1,8 @@
+#!/bin/bash
+
+main() {
+  echo "Installing ansible, git and make."
+  sudo apt-get install git ansible make --yes
+}
+
+main "$@"
