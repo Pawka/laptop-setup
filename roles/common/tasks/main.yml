@@ -5,3 +5,7 @@
   with_items:
     - curl
     - make
+    - tig
+    - vim
+    - zsh
+    - tmux
