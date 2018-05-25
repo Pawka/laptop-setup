@@ -4,8 +4,10 @@
   apt: name="{{item}}" state=present
   with_items:
     - curl
+    - git
     - make
     - tig
+    - tmux
+    - tree
     - vim
     - zsh
-    - tmux

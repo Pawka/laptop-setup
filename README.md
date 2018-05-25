@@ -17,9 +17,4 @@ Ansible playbooks to setup Debian based laptop for my own needs.
 Install following tools:
 
 - dotfiles
-- git
 - st
-- tig
-- tree
-- vim
-- zsh
