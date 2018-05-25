@@ -11,3 +11,10 @@
     - tree
     - vim
     - zsh
+
+- name: create directories
+  file: path="{{item}}" mode=0755 state=directory
+  with_items:
+    - Documents
+    - projects
+    - tmp
