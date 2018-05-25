@@ -5,7 +5,9 @@
   with_items:
     - curl
     - git
+    - jq
     - make
+    - silversearcher-ag
     - tig
     - tmux
     - tree
