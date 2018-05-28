@@ -17,6 +17,13 @@
 - name: create directories
   file: path="{{ansible_env.HOME}}/{{item}}" mode=0755 state=directory
   with_items:
+    - bin
     - Documents
     - projects
     - tmp
+
+- name: clone dotfiles
+  git: repo=https://github.com/Pawka/dotfiles.git dest="{{ansible_env.HOME}}/projects/dotfiles" force=true
+
+- name: install dotfiles
+  make: chdir={{ansible_env.HOME}}/projects/dotfiles target=install
