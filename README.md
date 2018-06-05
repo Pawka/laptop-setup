@@ -14,5 +14,7 @@ Ansible playbooks to setup Debian based laptop for my own needs.
 
 Install following tools:
 
-- dotfiles
+- autojump
 - st
+- zsh
+- oh-my-zsh

@@ -7,6 +7,7 @@
     - git
     - jq
     - make
+    - p7zip
     - silversearcher-ag
     - tig
     - tmux
