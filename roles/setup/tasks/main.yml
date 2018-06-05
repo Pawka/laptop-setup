@@ -1,0 +1,11 @@
+# Here goes tasks which usually needs to be executed once one a fresh install.
+---
+
+# Configure locales on fresh machine.
+- name: configure locales
+  become: true
+  shell: locale-gen "en_US.UTF-8"
+  shell: dpkg-reconfigure -f noninteractive locales
+  shell: touch /var/tmp/laptop-setup.locales
+  args:
+    creates: /var/tmp/laptop-setup.locales
