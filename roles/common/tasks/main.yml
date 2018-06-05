@@ -6,6 +6,7 @@
   with_items:
     - autojump
     - curl
+    - cmake
     - git
     - jq
     - p7zip-full
@@ -25,6 +26,9 @@
     - golang
     - php
     - php-curl
+    - python-dev
+    - python3-dev
+
 
 - name: create directories
   file: path="{{ansible_env.HOME}}/{{item}}" mode=0755 state=directory
