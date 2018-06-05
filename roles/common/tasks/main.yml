@@ -12,6 +12,7 @@
     - tig
     - tmux
     - tree
+    - urlview
     - vim
     - xclip
     - zsh
@@ -21,6 +22,8 @@
   apt: name="{{item}}" state=present
   with_items:
     - golang
+    - php
+    - php-curl
 
 - name: create directories
   file: path="{{ansible_env.HOME}}/{{item}}" mode=0755 state=directory
