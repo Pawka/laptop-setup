@@ -9,3 +9,12 @@
   shell: touch /var/tmp/laptop-setup.locales
   args:
     creates: /var/tmp/laptop-setup.locales
+
+- name: change shell to zsh for {{ ansible_env.USER  }}
+  user: name={{ ansible_env.USER  }} shell=/bin/zsh
+  become: true
+
+# This requires user re-login to the system or reboot.
+- name: allow use docker without sudo for {{ ansible_env.USER }}
+  become: true
+  user: name={{ ansible_env.USER  }} groups=docker append=yes
