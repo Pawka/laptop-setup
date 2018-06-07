@@ -28,6 +28,8 @@
     - golang
     - php
     - php-curl
+    - php-gd
+    - php-mbstring
     - php-mysql
     - python-dev
     - python3-dev
