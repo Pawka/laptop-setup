@@ -2,13 +2,20 @@
 ---
 
 # Configure locales on fresh machine.
-- name: configure locales
+- name: generate locale
   become: true
   shell: locale-gen "en_US.UTF-8"
-  shell: dpkg-reconfigure -f noninteractive locales
-  shell: touch /var/tmp/laptop-setup.locales
   args:
     creates: /var/tmp/laptop-setup.locales
+
+- name: reconfigure locales
+  become: true
+  shell: dpkg-reconfigure -f noninteractive locales
+  args:
+    creates: /var/tmp/laptop-setup.locales
+
+- name: ensure locales will not be generated on next run
+  file: path=/var/tmp/laptop-setup.locales state=touch
 
 - name: change shell to zsh for {{ ansible_env.USER  }}
   user: name={{ ansible_env.USER  }} shell=/bin/zsh
