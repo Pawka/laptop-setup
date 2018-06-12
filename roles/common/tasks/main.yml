@@ -5,12 +5,13 @@
   apt: name="{{item}}" state=present
   with_items:
     - autojump
-    - curl
     - cmake
+    - curl
     - git
     - jq
     - p7zip-full
     - silversearcher-ag
+    - taskwarrior
     - tig
     - tmux
     - tree
@@ -26,13 +27,17 @@
     - docker
     - docker-compose
     - golang
+    - mysql-client
     - php
     - php-curl
     - php-gd
     - php-mbstring
     - php-mysql
     - python-dev
-    - python3-dev
+    - python-flake8
+    - python-pip
+    - python-pytest
+    - virtualenv
 
 - name: install packages for multimedia
   become: true
