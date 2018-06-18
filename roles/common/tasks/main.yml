@@ -26,6 +26,7 @@
   with_items:
     - docker
     - docker-compose
+    - exuberant-ctags
     - golang
     - mysql-client
     - php
@@ -33,6 +34,7 @@
     - php-gd
     - php-mbstring
     - php-mysql
+    - php-xdebug
     - python-dev
     - python-flake8
     - python-pip
@@ -59,3 +61,18 @@
 
 - name: install dotfiles
   make: chdir={{ansible_env.HOME}}/projects/dotfiles target=install
+
+- name: Configure php.ini
+  become: true
+  tags:
+    - php
+  ini_file:
+    path: /etc/php/7.2/mods-available/xdebug.ini
+    section: xdebug
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+  loop:
+    - { option: "xdebug.remote_enable", value: "on" }
+    - { option: "xdebug.remote_handler", value: "dbgp" }
+    - { option: "xdebug.remote_host", value: "localhost" }
+    - { option: "xdebug.remote_port", value: "9000" }
