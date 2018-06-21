@@ -28,7 +28,9 @@
     - docker-compose
     - exuberant-ctags
     - golang
+    - ipython
     - mysql-client
+    - npm
     - php
     - php-curl
     - php-gd
@@ -54,6 +56,7 @@
     - bin
     - Documents
     - projects
+    - soft
     - tmp
 
 - name: clone dotfiles
@@ -72,7 +75,16 @@
     option: "{{ item.option }}"
     value: "{{ item.value }}"
   loop:
+    # Vdebug setup
     - { option: "xdebug.remote_enable", value: "on" }
     - { option: "xdebug.remote_handler", value: "dbgp" }
     - { option: "xdebug.remote_host", value: "localhost" }
     - { option: "xdebug.remote_port", value: "9000" }
+
+- name: Clone phpctags
+  tags:
+    - php
+  git:
+    repo: https://github.com/vim-php/phpctags
+    dest: "{{ ansible_env.HOME }}/soft/phpctags"
+    force: true
