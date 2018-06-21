@@ -88,3 +88,13 @@
     repo: https://github.com/vim-php/phpctags
     dest: "{{ ansible_env.HOME }}/soft/phpctags"
     force: true
+
+- name: Install global npm packages
+  become: true
+  tags:
+    - javascript
+  npm:
+    name: "{{item}}"
+    global: yes
+  with_items:
+    - jshint
