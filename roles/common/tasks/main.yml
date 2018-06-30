@@ -9,7 +9,9 @@
     - curl
     - git
     - jq
+    - net-tools
     - p7zip-full
+    - pwgen
     - silversearcher-ag
     - taskwarrior
     - tig
