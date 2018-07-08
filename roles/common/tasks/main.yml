@@ -8,6 +8,7 @@
     - cmake
     - curl
     - git
+    - gnucash
     - jq
     - net-tools
     - p7zip-full
