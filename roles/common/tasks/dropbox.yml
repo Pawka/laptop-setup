@@ -1,0 +1,13 @@
+---
+
+- name: check if dropbox is installed
+  command: dpkg-query -W dropbox
+  register: dropbox_installed
+  failed_when: false
+  changed_when: false
+
+- name: install dropbox deb packate
+  become: true
+  apt:
+    deb: https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb
+  when: dropbox_installed.rc == 1

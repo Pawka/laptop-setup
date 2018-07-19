@@ -62,6 +62,9 @@
     - soft
     - tmp
 
+- name: include dropbox.yml task
+  include: dropbox.yml
+
 - name: clone dotfiles
   git: repo=https://github.com/Pawka/dotfiles.git dest="{{ansible_env.HOME}}/projects/dotfiles" force=true
 
