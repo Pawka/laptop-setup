@@ -1,0 +1,39 @@
+---
+
+- name: install packages for php
+  become: true
+  tags:
+    - php
+  apt: name="{{item}}" state=present
+  with_items:
+    - php
+    - php-curl
+    - php-gd
+    - php-mbstring
+    - php-mysql
+    - php-xdebug
+    - php-xml
+
+- name: configure php.ini
+  become: true
+  tags:
+    - php
+  ini_file:
+    path: /etc/php/7.2/mods-available/xdebug.ini
+    section: xdebug
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+  loop:
+    # Vdebug setup
+    - { option: "xdebug.remote_enable", value: "on" }
+    - { option: "xdebug.remote_handler", value: "dbgp" }
+    - { option: "xdebug.remote_host", value: "localhost" }
+    - { option: "xdebug.remote_port", value: "9000" }
+
+- name: clone phpctags
+  tags:
+    - php
+  git:
+    repo: https://github.com/vim-php/phpctags
+    dest: "{{ ansible_env.HOME }}/soft/phpctags"
+    force: true

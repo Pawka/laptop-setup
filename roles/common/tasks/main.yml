@@ -35,13 +35,6 @@
     - ipython
     - mysql-client
     - npm
-    - php
-    - php-curl
-    - php-gd
-    - php-mbstring
-    - php-mysql
-    - php-xdebug
-    - php-xml
     - python-dev
     - python-flake8
     - python-pip
@@ -67,35 +60,14 @@
 - name: include dropbox.yml task
   include: dropbox.yml
 
+- name: include php.yml task
+  include: php.yml
+
 - name: clone dotfiles
   git: repo=https://github.com/Pawka/dotfiles.git dest="{{ansible_env.HOME}}/projects/dotfiles" force=true
 
 - name: install dotfiles
   make: chdir={{ansible_env.HOME}}/projects/dotfiles target=install
-
-- name: Configure php.ini
-  become: true
-  tags:
-    - php
-  ini_file:
-    path: /etc/php/7.2/mods-available/xdebug.ini
-    section: xdebug
-    option: "{{ item.option }}"
-    value: "{{ item.value }}"
-  loop:
-    # Vdebug setup
-    - { option: "xdebug.remote_enable", value: "on" }
-    - { option: "xdebug.remote_handler", value: "dbgp" }
-    - { option: "xdebug.remote_host", value: "localhost" }
-    - { option: "xdebug.remote_port", value: "9000" }
-
-- name: Clone phpctags
-  tags:
-    - php
-  git:
-    repo: https://github.com/vim-php/phpctags
-    dest: "{{ ansible_env.HOME }}/soft/phpctags"
-    force: true
 
 - name: Install global npm packages
   become: true
