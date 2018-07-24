@@ -41,6 +41,7 @@
     - php-mbstring
     - php-mysql
     - php-xdebug
+    - php-xml
     - python-dev
     - python-flake8
     - python-pip
