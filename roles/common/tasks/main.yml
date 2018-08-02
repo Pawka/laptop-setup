@@ -10,6 +10,7 @@
     - git
     - gnucash
     - jq
+    - keepassx
     - net-tools
     - p7zip-full
     - pwgen
