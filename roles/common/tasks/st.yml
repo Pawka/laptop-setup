@@ -1,0 +1,33 @@
+---
+
+- name: check if st binary exists
+  command: which st
+  register: st_installed
+  failed_when: false
+  changed_when: false
+
+- name: clone st repository
+  git: repo=https://github.com/Pawka/st.git dest="{{ansible_env.HOME}}/soft/st" force=true
+  when: st_installed.rc == 1
+
+- name: install dependencies for st
+  become: true
+  apt: name="{{item}}" state=present
+  with_items:
+    - libx11-dev
+    - libxext-dev
+    - libxft-dev
+
+- name: compile st
+  become: true
+  make:
+    chdir: "{{ansible_env.HOME}}/soft/st"
+    target: clean
+  when: st_installed.rc == 1
+
+- name: compile st
+  become: true
+  make:
+    chdir: "{{ansible_env.HOME}}/soft/st"
+    target: install
+  when: st_installed.rc == 1
