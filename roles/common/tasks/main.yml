@@ -66,6 +66,7 @@
 
 - name: include php.yml task
   include: php.yml
+  tags: php
 
 - name: clone dotfiles
   git: repo=https://github.com/Pawka/dotfiles.git dest="{{ansible_env.HOME}}/projects/dotfiles" force=true

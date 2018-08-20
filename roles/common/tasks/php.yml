@@ -2,8 +2,6 @@
 
 - name: install packages for php
   become: true
-  tags:
-    - php
   apt: name="{{item}}" state=present
   with_items:
     - php
@@ -16,8 +14,6 @@
 
 - name: configure php.ini
   become: true
-  tags:
-    - php
   ini_file:
     path: /etc/php/7.2/mods-available/xdebug.ini
     section: xdebug
@@ -37,11 +33,8 @@
   register: composer_installed
   failed_when: false
   changed_when: false
-  tags: php
 
 - name: download Composer installer
-  tags:
-    - php
   get_url:
     url: https://getcomposer.org/installer
     dest: /tmp/composer-installer.php
@@ -49,16 +42,12 @@
   when: composer_installed.rc == 1
 
 - name: install Composer
-  tags:
-    - php
   command: php /tmp/composer-installer.php --install-dir="{{ansible_env.HOME}}/bin"
   args:
     creates: "{{ansible_env.HOME}}/bin/composer.phar"
 
 # phpctags setup
 - name: clone phpctags
-  tags:
-    - php
   git:
     repo: https://github.com/vim-php/phpctags
     dest: "{{ ansible_env.HOME }}/soft/phpctags"
