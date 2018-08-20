@@ -52,3 +52,14 @@
     repo: https://github.com/vim-php/phpctags
     dest: "{{ ansible_env.HOME }}/soft/phpctags"
     force: true
+
+- name: install phpctags dependencies
+  command: composer.phar install --working-dir="{{ansible_env.HOME}}/soft/phpctags"
+  args:
+    creates: "{{ansible_env.HOME}}/soft/phpctags/composer.lock"
+
+- name: create phpctags symlink
+  file:
+    path: "{{ansible_env.HOME}}/bin/phpctags"
+    src: "{{ansible_env.HOME}}/soft/phpctags/bin/phpctags"
+    state: link
