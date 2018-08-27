@@ -40,6 +40,7 @@
     - python-flake8
     - python-pip
     - python-pytest
+    - shellcheck
     - virtualenv
 
 - name: install packages for multimedia
