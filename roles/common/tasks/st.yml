@@ -7,7 +7,7 @@
   changed_when: false
 
 - name: clone st repository
-  git: repo=git@github.com:Pawka/st.git dest="{{ansible_env.HOME}}/soft/st" force=true
+  git: repo=https://github.com/Pawka/st.git dest="{{ansible_env.HOME}}/soft/st" force=true
   when: st_installed.rc == 1
 
 - name: install dependencies for st
