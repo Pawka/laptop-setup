@@ -54,7 +54,7 @@
     force: true
 
 - name: install phpctags dependencies
-  command: composer.phar install --working-dir="{{ansible_env.HOME}}/soft/phpctags"
+  command: "{{ansible_env.HOME}}/bin/composer.phar install --working-dir={{ansible_env.HOME}}/soft/phpctags"
   args:
     creates: "{{ansible_env.HOME}}/soft/phpctags/composer.lock"
 
