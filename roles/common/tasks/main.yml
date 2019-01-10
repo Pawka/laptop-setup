@@ -28,6 +28,7 @@
   become: true
   apt: name="{{item}}" state=present
   with_items:
+    - awscli
     - colordiff
     - dh-make
     - docker
