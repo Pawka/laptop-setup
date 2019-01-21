@@ -1,0 +1,13 @@
+---
+
+- name: install packages for python
+  become: true
+  apt: name="{{item}}" state=present
+  with_items:
+    - ipython
+    - python-dev
+    - python-flake8
+    - python-pip
+    - python-pytest
+    - libmysqlclient-dev
+    - virtualenv
