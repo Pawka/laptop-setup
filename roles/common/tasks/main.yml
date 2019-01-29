@@ -35,6 +35,7 @@
     - docker-compose
     - exuberant-ctags
     - golang
+    - mercurial
     - mysql-client
     - npm
     - shellcheck
