@@ -25,6 +25,8 @@
     - { option: "xdebug.remote_handler", value: "dbgp" }
     - { option: "xdebug.remote_host", value: "localhost" }
     - { option: "xdebug.remote_port", value: "9000" }
+      # var_dump config
+    - { option: "xdebug.var_display_max_depth", value: "5" }
 
 
 # Composer setup
