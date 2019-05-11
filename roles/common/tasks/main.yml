@@ -12,6 +12,7 @@
     - jq
     - keepassx
     - net-tools
+    - openvpn
     - p7zip-full
     - pwgen
     - silversearcher-ag
