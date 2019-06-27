@@ -1,0 +1,20 @@
+---
+
+- name: install packages for security
+  become: true
+  apt: name="{{item}}" state=present
+  with_items:
+    - openvpn
+
+- name: download nordvpn servers list
+  become: true
+  get_url:
+    url: https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip
+    dest: /etc/openvpn/ovpn.zip
+    mode: 0755
+
+- name: unpack nordvpn servers list
+  become: true
+  unarchive:
+    src: /etc/openvpn/ovpn.zip
+    dest: /etc/openvpn

@@ -57,6 +57,10 @@
     - soft
     - tmp
 
+- name: include security.yml task
+  include: security.yml
+  tags: security
+
 - name: include st.yml task
   include: st.yml
 
