@@ -35,7 +35,6 @@
     - docker
     - docker-compose
     - exuberant-ctags
-    - golang
     - mercurial
     - mysql-client
     - npm
@@ -70,6 +69,10 @@
 - name: include python.yml task
   include: python.yml
   tags: python
+
+- name: include golang.yml task
+  include: golang.yml
+  tags: golang
 
 - name: clone dotfiles
   git: repo=https://github.com/Pawka/dotfiles.git dest="{{ansible_env.HOME}}/projects/dotfiles" force=true
