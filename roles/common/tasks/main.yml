@@ -1,5 +1,10 @@
 ---
 
+- name: adding repositories
+  apt_repository: repo="{{item}}"
+  with_items:
+    - ppa:neovim-ppa/stable
+
 - name: install packages
   become: true
   apt: name="{{item}}" state=present
@@ -11,6 +16,7 @@
     - gnucash
     - jq
     - keepassx
+    - neovim
     - net-tools
     - openvpn
     - p7zip-full
