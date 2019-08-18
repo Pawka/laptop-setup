@@ -15,3 +15,15 @@
 - name: install fzf
   command: "{{ansible_env.HOME}}/soft/fzf/install --all --no-fish --64"
   when: fzf_installed.rc == 1
+
+- name: check if ripgrep is installed
+  command: dpkg-query -W ripgrep
+  register: ripgrep_installed
+  failed_when: false
+  changed_when: false
+
+- name: install ripgrep deb package
+  become: true
+  apt:
+    deb: "https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb"
+  when: ripgrep_installed.rc == 1
