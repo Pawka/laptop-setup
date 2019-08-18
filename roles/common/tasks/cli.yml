@@ -1,0 +1,17 @@
+---
+- name: include st.yml task
+  include: st.yml
+
+- name: check if fzf binary exists
+  command: which fzf
+  register: fzf_installed
+  failed_when: false
+  changed_when: false
+
+- name: clone fzf repository
+  git: repo=https://github.com/junegunn/fzf.git dest="{{ansible_env.HOME}}/soft/fzf" force=true depth=1
+  when: fzf_installed.rc == 1
+
+- name: install fzf
+  command: "{{ansible_env.HOME}}/soft/fzf/install --all --no-fish --64"
+  when: fzf_installed.rc == 1

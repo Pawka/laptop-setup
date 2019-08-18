@@ -63,9 +63,6 @@
     - soft
     - tmp
 
-- name: include st.yml task
-  include: st.yml
-
 - name: include dropbox.yml task
   include: dropbox.yml
 
@@ -86,6 +83,9 @@
 
 - name: install dotfiles
   make: chdir={{ansible_env.HOME}}/projects/dotfiles target=install
+
+- name: include cli.yml task
+  include: cli.yml
 
 - name: Install global npm packages
   become: true
