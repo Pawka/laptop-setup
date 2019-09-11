@@ -12,6 +12,7 @@
     - autojump
     - cmake
     - curl
+    - direnv
     - git
     - gnucash
     - jq
