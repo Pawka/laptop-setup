@@ -5,9 +5,10 @@
   apt: name="{{item}}" state=present
   with_items:
     - ipython
+    - libmysqlclient-dev
     - python-dev
     - python-flake8
     - python-pip
     - python-pytest
-    - libmysqlclient-dev
+    - python3-venv
     - virtualenv
