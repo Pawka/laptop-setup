@@ -6,9 +6,8 @@
   failed_when: false
   changed_when: false
 
-# Tested on amd64 and i368 architectures.
 - name: install dropbox deb package
   become: true
   apt:
-    deb: "https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_{{ansible_architecture}}.deb"
+    deb: "https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2019.02.14_amd64.deb"
   when: dropbox_installed.rc == 1
