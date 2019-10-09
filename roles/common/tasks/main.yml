@@ -1,6 +1,7 @@
 ---
 
 - name: adding repositories
+  become: true
   apt_repository: repo="{{item}}"
   with_items:
     - ppa:neovim-ppa/stable

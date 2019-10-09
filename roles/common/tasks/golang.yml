@@ -1,6 +1,7 @@
 ---
 
 - name: adding repository
+  become: true
   apt_repository:
     repo: ppa:longsleep/golang-backports
 
