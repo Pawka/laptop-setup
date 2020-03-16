@@ -31,5 +31,5 @@
 - name: install ripgrep deb package
   become: true
   apt:
-    deb: "https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb"
+    deb: "https://github.com/BurntSushi/ripgrep/releases/download/12.0.0/ripgrep_12.0.0_amd64.deb"
   when: ripgrep_installed.rc == 1
