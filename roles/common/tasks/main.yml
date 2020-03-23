@@ -88,6 +88,10 @@
 - name: include cli.yml task
   include: cli.yml
 
+- name: include i3wm.yml task
+  include: i3wm.yml
+  tags: i3wm
+
 - name: Install global npm packages
   become: true
   tags:

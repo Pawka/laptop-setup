@@ -1,0 +1,13 @@
+---
+
+- name: configure logind.
+  become: true
+  ini_file:
+    path: /etc/systemd/logind.conf
+    section: Login
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+    no_extra_spaces: true
+  loop:
+    # Do not suspend when lid is closed on AC power. Requires reboot.
+    - { option: "HandleLidSwitchDocked", value: "ignore" }
