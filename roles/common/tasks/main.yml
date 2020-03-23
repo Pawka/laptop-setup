@@ -45,7 +45,6 @@
     - exuberant-ctags
     - mercurial
     - mysql-client
-    - npm
     - shellcheck
 
 - name: install packages for multimedia
@@ -92,12 +91,6 @@
   include: i3wm.yml
   tags: i3wm
 
-- name: Install global npm packages
-  become: true
-  tags:
-    - javascript
-  npm:
-    name: "{{item}}"
-    global: yes
-  with_items:
-    - jshint
+- name: include js.yml task
+  include: js.yml
+  tags: js

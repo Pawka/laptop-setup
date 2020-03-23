@@ -1,0 +1,15 @@
+---
+
+- name: install packages for npm
+  become: true
+  apt: name="{{item}}" state=present
+  with_items:
+    - npm
+
+- name: Install global npm packages
+  become: true
+  npm:
+    name: "{{item}}"
+    global: yes
+  with_items:
+    - jshint
