@@ -2,15 +2,16 @@
 
 - name: install packages for php
   become: true
-  apt: name="{{item}}" state=present
-  with_items:
-    - php
-    - php-curl
-    - php-gd
-    - php-mbstring
-    - php-mysql
-    - php-xdebug
-    - php-xml
+  apt:
+    state: present
+    name:
+      - php
+      - php-curl
+      - php-gd
+      - php-mbstring
+      - php-mysql
+      - php-xdebug
+      - php-xml
 
 - name: configure php.ini
   become: true
@@ -47,6 +48,7 @@
   command: php /tmp/composer-installer.php --install-dir="{{ansible_env.HOME}}/bin"
   args:
     creates: "{{ansible_env.HOME}}/bin/composer.phar"
+  when: composer_installed.rc == 1
 
 # phpctags setup
 - name: clone phpctags

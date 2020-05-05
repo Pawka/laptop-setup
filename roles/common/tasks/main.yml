@@ -1,57 +1,54 @@
 ---
 
-- name: adding repositories
-  become: true
-  apt_repository: repo="{{item}}"
-  with_items:
-    - ppa:neovim-ppa/stable
-
 - name: install packages
   become: true
-  apt: name="{{item}}" state=present
-  with_items:
-    - autojump
-    - cmake
-    - curl
-    - direnv
-    - git
-    - gnucash
-    - jq
-    - keepassxc
-    - neovim
-    - net-tools
-    - openvpn
-    - p7zip-full
-    - pwgen
-    - taskwarrior
-    - tig
-    - tmux
-    - tree
-    - urlview
-    - vim
-    - whois
-    - xclip
-    - zsh
+  apt:
+    state: present
+    name:
+      - autojump
+      - cmake
+      - curl
+      - direnv
+      - git
+      - gnucash
+      - jq
+      - keepassxc
+      - neovim
+      - net-tools
+      - openvpn
+      - p7zip-full
+      - pwgen
+      - taskwarrior
+      - tig
+      - tmux
+      - tree
+      - urlview
+      - vim
+      - whois
+      - xclip
+      - zsh
 
 - name: install packages for development
   become: true
-  apt: name="{{item}}" state=present
-  with_items:
-    - awscli
-    - colordiff
-    - dh-make
-    - docker
-    - docker-compose
-    - exuberant-ctags
-    - mercurial
-    - mysql-client
-    - shellcheck
+  apt:
+    state: present
+    name:
+      - awscli
+      - colordiff
+      - dh-make
+      - docker
+      - docker-compose
+      - exuberant-ctags
+      - mercurial
+      - mysql-client
+      - shellcheck
 
 - name: install packages for multimedia
   become: true
-  apt: name="{{item}}" state=present
-  with_items:
-    - gimp
+  apt:
+    state: present
+    name:
+      - gimp
 
 
 - name: create directories

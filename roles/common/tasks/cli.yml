@@ -2,12 +2,6 @@
 - name: include st.yml task
   include: st.yml
 
-- name: install packages
-  become: true
-  apt: name="{{item}}" state=present
-  with_items:
-    - fonts-powerline  # Used by VIM.
-
 - name: check if fzf binary exists
   command: which fzf
   register: fzf_installed

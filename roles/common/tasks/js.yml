@@ -2,9 +2,10 @@
 
 - name: install packages for npm
   become: true
-  apt: name="{{item}}" state=present
-  with_items:
-    - npm
+  apt:
+    state: present
+    name:
+      - npm
 
 - name: Install global npm packages
   become: true

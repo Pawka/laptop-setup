@@ -1,12 +1,8 @@
 ---
 
-- name: adding repository
-  become: true
-  apt_repository:
-    repo: ppa:longsleep/golang-backports
-
 - name: install packages for golang
   become: true
-  apt: name="{{item}}" state=latest
-  with_items:
-    - golang-go
+  apt:
+    state: latest
+    name:
+      - golang-go
