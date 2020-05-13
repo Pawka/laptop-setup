@@ -39,6 +39,7 @@
       - docker
       - docker-compose
       - exuberant-ctags
+      - graphviz
       - mercurial
       - mysql-client
       - shellcheck
