@@ -15,6 +15,7 @@
   apt:
     state: present
     name:
+      - fonts-symbola # st may crash when color emoji font is used.
       - libx11-dev
       - libxext-dev
       - libxft-dev
