@@ -13,7 +13,6 @@
       - gnucash
       - jq
       - keepassxc
-      - neovim
       - net-tools
       - openvpn
       - p7zip-full
@@ -24,6 +23,7 @@
       - tree
       - urlview
       - vim
+      - vim-gnome
       - whois
       - xclip
       - zsh
