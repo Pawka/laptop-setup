@@ -60,9 +60,6 @@
     - soft
     - tmp
 
-- name: include gnome.yml task
-  include: gnome.yml
-
 - name: include dropbox.yml task
   include: dropbox.yml
 
