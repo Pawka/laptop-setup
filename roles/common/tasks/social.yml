@@ -5,7 +5,14 @@
   apt:
     deb: "https://discord.com/api/download?platform=linux&format=deb"
 
+- name: Check if slack is installed
+  command: dpkg-query -W slack-desktop
+  register: check_slack
+  failed_when: false
+  changed_when: false
+
 - name: install slack
   become: true
   apt:
     deb: "https://downloads.slack-edge.com/releases/linux/4.21.1/prod/x64/slack-desktop-4.21.1-amd64.deb"
+  when: check_slack.rc == 1
