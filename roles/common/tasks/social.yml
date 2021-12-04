@@ -1,9 +1,16 @@
 ---
 
+- name: Check if discodn is installed
+  command: dpkg-query -W discord
+  register: check_discord
+  failed_when: false
+  changed_when: false
+
 - name: install discord
   become: true
   apt:
     deb: "https://discord.com/api/download?platform=linux&format=deb"
+  when: check_discord.rc == 1
 
 - name: Check if slack is installed
   command: dpkg-query -W slack-desktop
