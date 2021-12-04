@@ -49,6 +49,7 @@
     state: present
     name:
       - gimp
+      - vlc
 
 
 - name: create directories
