@@ -13,6 +13,3 @@
 
 - name: include social tools
   include: social.yml
-
-- name: include dropbox.yml task
-  include: dropbox.yml
