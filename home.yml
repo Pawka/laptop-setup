@@ -4,5 +4,6 @@
   roles:
     - common
     - dev
+    - home
     - media
     - setup
