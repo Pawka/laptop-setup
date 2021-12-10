@@ -13,6 +13,10 @@
       - mysql-client
       - shellcheck
 
+- name: include rust.yml task
+  include: rust.yml
+  tags: rust
+
 - name: include php.yml task
   include: php.yml
   tags: php
