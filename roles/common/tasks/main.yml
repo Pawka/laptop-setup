@@ -67,18 +67,6 @@
 - name: include dropbox.yml task
   include: dropbox.yml
 
-- name: include php.yml task
-  include: php.yml
-  tags: php
-
-- name: include python.yml task
-  include: python.yml
-  tags: python
-
-- name: include golang.yml task
-  include: golang.yml
-  tags: golang
-
 - name: clone dotfiles
   git: repo=https://github.com/Pawka/dotfiles.git dest="{{ansible_env.HOME}}/projects/dotfiles" force=true
 
@@ -91,7 +79,3 @@
 - name: include i3wm.yml task
   include: i3wm.yml
   tags: i3wm
-
-- name: include js.yml task
-  include: js.yml
-  tags: js

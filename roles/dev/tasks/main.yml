@@ -1,0 +1,17 @@
+---
+
+- name: include php.yml task
+  include: php.yml
+  tags: php
+
+- name: include python.yml task
+  include: python.yml
+  tags: python
+
+- name: include golang.yml task
+  include: golang.yml
+  tags: golang
+
+- name: include js.yml task
+  include: js.yml
+  tags: js
