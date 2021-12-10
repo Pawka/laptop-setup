@@ -7,3 +7,6 @@
     name:
       - gnucash
       - keepassxc
+
+- name: install social apps for home use
+  include: social.yml
