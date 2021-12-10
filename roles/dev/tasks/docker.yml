@@ -1,0 +1,14 @@
+---
+
+- name: install docker
+  become: true
+  apt:
+    state: present
+    name:
+      - docker
+      - docker-compose
+
+# This requires user re-login to the system or reboot.
+- name: allow use docker without sudo for {{ ansible_env.USER }}
+  become: true
+  user: name={{ ansible_env.USER  }} groups=docker append=yes

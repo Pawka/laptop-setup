@@ -1,5 +1,18 @@
 ---
 
+- name: install packages for development
+  become: true
+  apt:
+    state: present
+    name:
+      - awscli
+      - colordiff
+      - dh-make
+      - exuberant-ctags
+      - graphviz
+      - mysql-client
+      - shellcheck
+
 - name: include php.yml task
   include: php.yml
   tags: php
@@ -15,3 +28,7 @@
 - name: include js.yml task
   include: js.yml
   tags: js
+
+- name: include docker.yml task
+  include: docker.yml
+  tags: docker
