@@ -4,5 +4,4 @@
   roles:
     - common
     - dev
-    - setup
     - work

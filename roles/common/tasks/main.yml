@@ -32,6 +32,9 @@
     - soft
     - tmp
 
+- name: run fresh install setup
+  include: setup.yml
+
 - name: include social tools
   include: social.yml
 
