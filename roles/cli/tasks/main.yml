@@ -1,34 +1,3 @@
----
-
-- name: install packages
-  become: true
-  apt:
-    state: present
-    name:
-      - autojump
-      - cmake
-      - curl
-      - git
-      - jq
-      - net-tools
-      - p7zip-full
-      - pwgen
-      - taskwarrior
-      - tig
-      - tmux
-      - tree
-      - urlview
-      - vim
-      - whois
-      - xclip
-      - zsh
-
-- name: clone dotfiles
-  git: repo=https://github.com/Pawka/dotfiles.git dest="{{ansible_env.HOME}}/projects/dotfiles" force=true
-
-- name: install dotfiles
-  make: chdir={{ansible_env.HOME}}/projects/dotfiles target=install
-
 - name: check if fzf binary exists
   command: which fzf
   register: fzf_installed
@@ -52,7 +21,7 @@
 - name: install ripgrep deb package
   become: true
   apt:
-    deb: "https://github.com/BurntSushi/ripgrep/releases/download/12.0.0/ripgrep_12.0.0_amd64.deb"
+    deb: "https://github.com/BurntSushi/ripgrep/releases/download/{{ ripgrep_version }}/ripgrep_{{ ripgrep_version }}_amd64.deb"
   when: ripgrep_installed.rc == 1
 
 - name: include st.yml task
