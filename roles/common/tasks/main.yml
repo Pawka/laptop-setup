@@ -27,22 +27,6 @@
       - xclip
       - zsh
 
-- name: install packages for development
-  become: true
-  apt:
-    state: present
-    name:
-      - awscli
-      - colordiff
-      - dh-make
-      - docker
-      - docker-compose
-      - exuberant-ctags
-      - graphviz
-      - mercurial
-      - mysql-client
-      - shellcheck
-
 - name: install packages for multimedia
   become: true
   apt:
