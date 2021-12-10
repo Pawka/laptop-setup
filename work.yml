@@ -3,5 +3,6 @@
   connection: local
   roles:
     - common
+    - cli
     - dev
     - work

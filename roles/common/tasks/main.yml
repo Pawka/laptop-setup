@@ -1,28 +1,4 @@
 ---
-
-- name: install packages
-  become: true
-  apt:
-    state: present
-    name:
-      - autojump
-      - cmake
-      - curl
-      - git
-      - jq
-      - net-tools
-      - p7zip-full
-      - pwgen
-      - taskwarrior
-      - tig
-      - tmux
-      - tree
-      - urlview
-      - vim
-      - whois
-      - xclip
-      - zsh
-
 - name: create directories
   file: path="{{ansible_env.HOME}}/{{item}}" mode=0755 state=directory
   with_items:
@@ -40,16 +16,3 @@
 
 - name: include dropbox.yml task
   include: dropbox.yml
-
-- name: clone dotfiles
-  git: repo=https://github.com/Pawka/dotfiles.git dest="{{ansible_env.HOME}}/projects/dotfiles" force=true
-
-- name: install dotfiles
-  make: chdir={{ansible_env.HOME}}/projects/dotfiles target=install
-
-- name: include cli.yml task
-  include: cli.yml
-
-- name: include i3wm.yml task
-  include: i3wm.yml
-  tags: i3wm
