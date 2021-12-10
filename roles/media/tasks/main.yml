@@ -1,0 +1,9 @@
+---
+
+- name: install packages for multimedia
+  become: true
+  apt:
+    state: present
+    name:
+      - gimp
+      - vlc

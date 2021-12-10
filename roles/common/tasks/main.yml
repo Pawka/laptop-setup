@@ -27,15 +27,6 @@
       - xclip
       - zsh
 
-- name: install packages for multimedia
-  become: true
-  apt:
-    state: present
-    name:
-      - gimp
-      - vlc
-
-
 - name: create directories
   file: path="{{ansible_env.HOME}}/{{item}}" mode=0755 state=directory
   with_items:
