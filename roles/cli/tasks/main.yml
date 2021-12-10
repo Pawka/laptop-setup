@@ -29,10 +29,6 @@
 - name: install dotfiles
   make: chdir={{ansible_env.HOME}}/projects/dotfiles target=install
 
-- name: include i3wm.yml task
-  include: i3wm.yml
-  tags: i3wm
-
 - name: check if fzf binary exists
   command: which fzf
   register: fzf_installed
