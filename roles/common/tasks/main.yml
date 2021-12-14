@@ -15,4 +15,4 @@
   include: social.yml
 
 - name: setup gnome
-  inclute: gnome.yml
+  include: gnome.yml
