@@ -13,3 +13,6 @@
 
 - name: include social tools
   include: social.yml
+
+- name: setup gnome
+  inclute: gnome.yml

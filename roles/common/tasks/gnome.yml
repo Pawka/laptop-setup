@@ -1,0 +1,8 @@
+---
+
+- name: install gnome tweaks
+  become: true
+  apt:
+    state: present
+    name:
+      - gnome-tweaks  # To map Ctrl instead of Caps Lock.
