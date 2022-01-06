@@ -8,6 +8,7 @@
       - autojump
       - cmake
       - curl
+      - direnv
       - git
       - jq
       - net-tools
