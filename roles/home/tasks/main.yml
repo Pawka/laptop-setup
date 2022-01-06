@@ -13,3 +13,6 @@
 
 - name: include dropbox.yml task
   include: dropbox.yml
+
+- name: include sway.yml taks
+  include: sway.yml

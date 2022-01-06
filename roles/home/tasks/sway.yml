@@ -1,0 +1,8 @@
+---
+
+- name: install sway
+  become: true
+  apt:
+    state: present
+    name:
+      - sway
