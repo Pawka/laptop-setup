@@ -5,6 +5,7 @@
   apt:
     state: present
     name:
+      - light
       - mako-notifier
       - sway
 
