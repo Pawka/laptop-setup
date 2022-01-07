@@ -5,5 +5,4 @@
   apt:
     state: present
     name:
-      - direnv
       - openvpn
