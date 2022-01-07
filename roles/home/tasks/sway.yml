@@ -6,3 +6,9 @@
     state: present
     name:
       - sway
+
+- name: download barista status bar
+  get_url:
+    url: https://git.io/fA7iT
+    dest: "{{ ansible_env.HOME }}/bin/barista"
+    mode: 0755
