@@ -8,6 +8,7 @@
       - light
       - mako-notifier
       - sway
+      - wlogout
 
 - name: download barista status bar
   get_url:
