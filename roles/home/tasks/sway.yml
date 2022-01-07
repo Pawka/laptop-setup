@@ -5,6 +5,7 @@
   apt:
     state: present
     name:
+      - mako-notifier
       - sway
 
 - name: download barista status bar
