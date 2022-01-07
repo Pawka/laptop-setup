@@ -7,3 +7,9 @@
     name:
       - gimp
       - vlc
+
+- name: install snap packages for multimedia
+  become: true
+  snap:
+    name:
+      - spotify
