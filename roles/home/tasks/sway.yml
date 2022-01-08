@@ -15,3 +15,9 @@
     url: https://git.io/fA7iT
     dest: "{{ ansible_env.HOME }}/bin/barista"
     mode: 0755
+
+# User must belong to `video` group so screen brightness could be controlled via
+# `light` binary. This requires user re-login to the system or reboot.
+- name: Adding user {{ ansible_env.USER }} to video group
+  become: true
+  user: name={{ ansible_env.USER  }} groups=video append=yes
