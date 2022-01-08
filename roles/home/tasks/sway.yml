@@ -5,6 +5,7 @@
   apt:
     state: present
     name:
+      - gammastep
       - light
       - mako-notifier
       - sway
