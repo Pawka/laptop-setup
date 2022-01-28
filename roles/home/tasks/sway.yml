@@ -8,6 +8,7 @@
       - gammastep
       - light
       - mako-notifier
+      - rofi
       - sway
       - wlogout
 
