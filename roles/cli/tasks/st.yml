@@ -33,3 +33,18 @@
     chdir: "{{ansible_env.HOME}}/soft/st"
     target: install
   when: st_installed.rc == 1
+
+# The Desktop file makes application available on launchers.
+- name: create st Desktop file
+  become: true
+  copy:
+    dest: "/usr/share/applications/st.desktop"
+    content: |
+      [Desktop Entry]
+      Name=st
+      Comment=st is simply the best terminal
+      Exec=st
+      Icon=utilities-terminal
+      Terminal=false
+      Type=Application
+      Categories=System;TerminalEmulator;
