@@ -1,3 +1,4 @@
 ---
 ripgrep_version: 13.0.0
 slack_version: 4.22.0
+veracrypt_version: 1.25.9
