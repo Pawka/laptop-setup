@@ -41,7 +41,7 @@
     dest: "/usr/share/applications/st.desktop"
     content: |
       [Desktop Entry]
-      Name=st
+      Name=st Terminal
       Comment=st is simply the best terminal
       Exec=st
       Icon=utilities-terminal
