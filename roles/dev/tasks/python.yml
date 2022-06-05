@@ -7,7 +7,6 @@
     name:
       - ipython3
       - libmysqlclient-dev
-      - python-dev
       - python3-flake8
       - python3-pip
       - python3-pytest
