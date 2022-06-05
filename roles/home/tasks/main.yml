@@ -5,6 +5,7 @@
   apt:
     state: present
     name:
+      - calibre
       - gnucash
       - keepassxc
 
