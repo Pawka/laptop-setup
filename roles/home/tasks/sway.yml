@@ -12,6 +12,7 @@
       - rofi
       - slurp               # select region of wayland
       - sway
+      - swaylock            # lockscreen
       - wl-clipboard        # clipboard tooling
       - wlogout
 
