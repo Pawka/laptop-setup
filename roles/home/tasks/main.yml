@@ -8,6 +8,8 @@
       - calibre
       - gnucash
       - keepassxc
+      - newsboat
+      - syncthing
 
 - name: install social apps for home use
   include: social.yml
