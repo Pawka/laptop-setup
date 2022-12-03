@@ -25,6 +25,11 @@
       - xclip
       - zsh
 
+- name: Add neovim repository from PPA to get recent Neovim version if needed.
+  become: true
+  ansible.builtin.apt_repository:
+    repo: ppa:neovim-ppa/stable
+
 - name: clone dotfiles
   git: repo=https://github.com/Pawka/dotfiles.git dest="{{ansible_env.HOME}}/projects/dotfiles" force=true
 
