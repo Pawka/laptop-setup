@@ -5,6 +5,7 @@
   apt:
     state: present
     name:
+      - exiftool
       - gimp
       - vlc
 
