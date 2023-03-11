@@ -31,7 +31,17 @@
     repo: ppa:neovim-ppa/stable
 
 - name: clone dotfiles
-  git: repo=https://github.com/Pawka/dotfiles.git dest="{{ansible_env.HOME}}/projects/dotfiles" force=true
+  git:
+    repo: https://github.com/Pawka/dotfiles.git
+    dest: "{{ansible_env.HOME}}/projects/dotfiles"
+    force: false
+
+- name: set remote to SSH for dotfiles
+  git_config:
+    repo: "{{ansible_env.HOME}}/projects/dotfiles"
+    scope: local
+    name: remote.origin.url
+    value: git@github.com:Pawka/dotfiles.git
 
 - name: install dotfiles
   make: chdir={{ansible_env.HOME}}/projects/dotfiles target=install

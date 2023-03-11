@@ -1,4 +1,11 @@
 ---
+- name: check if rustup binary exists
+  command: which rustup
+  register: rustup_installed
+  failed_when: false
+  changed_when: false
+
 - name: Install RustUp
+  when: rustup_installed.rc == 1
   shell: |
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
