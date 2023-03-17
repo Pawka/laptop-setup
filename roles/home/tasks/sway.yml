@@ -13,11 +13,19 @@
       - rofi
       - slurp               # select region of wayland
       - sway
+      - swayidle            # idle management
       - swaylock            # lockscreen
       - wl-clipboard        # clipboard tooling
       - wlogout
 
+- name: check if barista binary exists
+  command: which barista
+  register: barista_installed
+  failed_when: false
+  changed_when: false
+
 - name: download barista status bar
+  when: fzf_installed.rc == 1
   get_url:
     url: https://git.io/fA7iT
     dest: "{{ ansible_env.HOME }}/bin/barista"
