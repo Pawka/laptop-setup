@@ -15,3 +15,9 @@
   snap:
     name:
       - spotify
+
+- name: install packages for tinkering
+  become: true
+  snap:
+    name:
+      - openscad
