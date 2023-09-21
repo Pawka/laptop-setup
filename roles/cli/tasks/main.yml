@@ -67,10 +67,18 @@
     deb: "https://github.com/BurntSushi/ripgrep/releases/download/{{ ripgrep_version }}/ripgrep_{{ ripgrep_version }}_amd64.deb"
   when: ripgrep_installed.rc == 1
 
-- name: install neovim deb package
+- name: install latest neovim
   become: true
-  apt:
-    deb: "https://github.com/neovim/neovim/releases/download/v{{ neovim_version }}/nvim-linux64.deb"
+  get_url:
+    url: https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+    dest: "{{ansible_env.HOME}}/soft/"
+    mode: 0755
+
+- name: Create nvim symlink
+  ansible.builtin.file:
+    src: "{{ansible_env.HOME}}/soft/nvim.appimage"
+    dest: "{{ansible_env.HOME}}/bin/nvim"
+    state: link
 
 - name: include st.yml task
   include: st.yml
