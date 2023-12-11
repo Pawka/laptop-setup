@@ -7,6 +7,7 @@
     name:
       - docker
       - docker-compose
+      - docker-buildx
 
 # This requires user re-login to the system or reboot.
 - name: allow use docker without sudo for {{ ansible_env.USER }}
