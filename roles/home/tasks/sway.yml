@@ -10,7 +10,9 @@
       - imv                 # image viewer
       - light
       - mako-notifier
+      - qalc                # Required for rofi-calc.
       - rofi
+      - rofi-dev            # Required for rofi-calc.
       - slurp               # select region of wayland
       - sway
       - swayidle            # idle management
@@ -25,7 +27,7 @@
   changed_when: false
 
 - name: download barista status bar
-  when: fzf_installed.rc == 1
+  when: barista_installed.rc == 1
   get_url:
     url: https://git.io/fA7iT
     dest: "{{ ansible_env.HOME }}/bin/barista"
@@ -36,3 +38,11 @@
 - name: Adding user {{ ansible_env.USER }} to video group
   become: true
   user: name={{ ansible_env.USER  }} groups=video append=yes
+
+# Rofi calculator.
+# Docs: https://github.com/svenstaro/rofi-calc
+- name: clone rofi-calc
+  git:
+    repo: https://github.com/svenstaro/rofi-calc.git
+    dest: "{{ansible_env.HOME}}/soft/rofi-calc"
+    force: false

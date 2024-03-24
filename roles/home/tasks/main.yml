@@ -19,3 +19,4 @@
 
 - name: include sway.yml taks
   include: sway.yml
+  tags: sway
