@@ -1,0 +1,14 @@
+---
+
+- name: install packages for HAM
+  become: true
+  apt:
+    state: present
+    name:
+      - gpredict
+
+- name: install packages for tinkering
+  become: true
+  snap:
+    name:
+      - openscad

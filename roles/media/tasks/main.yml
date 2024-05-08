@@ -16,8 +16,5 @@
     name:
       - spotify
 
-- name: install packages for tinkering
-  become: true
-  snap:
-    name:
-      - openscad
+- name: install packages for hobbies
+  include: hobbies.yml
