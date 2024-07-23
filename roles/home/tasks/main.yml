@@ -9,6 +9,7 @@
       - gnucash
       - keepassxc
       - newsboat
+      - qrencode
       - syncthing
 
 - name: install social apps for home use
