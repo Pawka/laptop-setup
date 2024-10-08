@@ -1,4 +1,11 @@
 ---
+- name: install packages for common use
+  become: true
+  apt:
+    state: present
+    name:
+      - ntp # For keeping time in sync.
+
 - name: create directories
   file: path="{{ansible_env.HOME}}/{{item}}" mode=0755 state=directory
   with_items:
