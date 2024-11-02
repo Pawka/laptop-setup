@@ -11,6 +11,14 @@
       - newsboat
       - syncthing
 
+- name: setup syncthing startup
+  become: true
+  ansible.builtin.systemd:
+    # Start on boot
+    enabled: true
+    state: started
+    name: syncthing@pawka.service
+
 - name: install social apps for home use
   include: social.yml
 
