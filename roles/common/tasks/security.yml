@@ -1,0 +1,26 @@
+- name: check if veracrypt is installed
+  command: dpkg-query -W veracrypt
+  register: veracrypt_installed
+  failed_when: false
+  changed_when: false
+
+- name: install veracrypt deb package
+  become: true
+  apt:
+    deb: "https://launchpad.net/veracrypt/trunk/{{ veracrypt_version }}/+download/veracrypt-{{ veracrypt_version }}-Ubuntu-21.04-amd64.deb"
+  when: veracrypt_installed.rc == 1
+
+
+# Yubikey setup
+- name: Add Yubico repository
+  become: true
+  apt_repository:
+    repo: ppa:yubico/stable
+    state: present
+
+- name: Install Yubico packages
+  become: true
+  apt:
+    state: present
+    name:
+      - libpam-u2f

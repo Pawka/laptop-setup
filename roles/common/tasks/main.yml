@@ -21,20 +21,12 @@
 - name: include social tools
   include_tasks: social.yml
 
+- name: include security tools
+  include_tasks: security.yml
+  tags: security
+
 - name: setup gnome
   include_tasks: gnome.yml
-
-- name: check if veracrypt is installed
-  command: dpkg-query -W veracrypt
-  register: veracrypt_installed
-  failed_when: false
-  changed_when: false
-
-- name: install veracrypt deb package
-  become: true
-  apt:
-    deb: "https://launchpad.net/veracrypt/trunk/{{ veracrypt_version }}/+download/veracrypt-{{ veracrypt_version }}-Ubuntu-21.04-amd64.deb"
-  when: veracrypt_installed.rc == 1
 
 - name: install obsidian
   become: true
