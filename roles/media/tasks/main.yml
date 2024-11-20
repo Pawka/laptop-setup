@@ -18,4 +18,4 @@
       - spotify
 
 - name: install packages for hobbies
-  include: hobbies.yml
+  include_tasks: hobbies.yml

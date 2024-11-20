@@ -16,13 +16,13 @@
     - tmp
 
 - name: run fresh install setup
-  include: setup.yml
+  include_tasks: setup.yml
 
 - name: include social tools
-  include: social.yml
+  include_tasks: social.yml
 
 - name: setup gnome
-  include: gnome.yml
+  include_tasks: gnome.yml
 
 - name: check if veracrypt is installed
   command: dpkg-query -W veracrypt

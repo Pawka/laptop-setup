@@ -20,11 +20,11 @@
     name: syncthing@pawka.service
 
 - name: install social apps for home use
-  include: social.yml
+  include_tasks: social.yml
 
 - name: include dropbox.yml task
-  include: dropbox.yml
+  include_tasks: dropbox.yml
 
 - name: include sway.yml taks
-  include: sway.yml
+  include_tasks: sway.yml
   tags: sway

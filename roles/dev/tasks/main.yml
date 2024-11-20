@@ -5,7 +5,6 @@
   apt:
     state: present
     name:
-      - awscli
       - colordiff
       - dh-make
       - exuberant-ctags
@@ -13,26 +12,33 @@
       - mysql-client
       - shellcheck
 
+- name: install snap packages for development
+  become: true
+  snap:
+    classic: true
+    name:
+      - aws-cli
+
 - name: include rust.yml task
-  include: rust.yml
+  include_tasks: rust.yml
   tags: rust
 
 - name: include php.yml task
-  include: php.yml
+  include_tasks: php.yml
   tags: php
 
 - name: include python.yml task
-  include: python.yml
+  include_tasks: python.yml
   tags: python
 
 - name: include golang.yml task
-  include: golang.yml
+  include_tasks: golang.yml
   tags: golang
 
 - name: include js.yml task
-  include: js.yml
+  include_tasks: js.yml
   tags: js
 
 - name: include docker.yml task
-  include: docker.yml
+  include_tasks: docker.yml
   tags: docker

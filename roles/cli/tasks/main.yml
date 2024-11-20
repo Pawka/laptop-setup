@@ -81,4 +81,4 @@
     state: link
 
 - name: include st.yml task
-  include: st.yml
+  include_tasks: st.yml
