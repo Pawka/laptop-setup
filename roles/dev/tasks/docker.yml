@@ -5,7 +5,7 @@
   apt:
     state: present
     name:
-      - docker
+      - docker.io
       - docker-compose
       - docker-buildx
 

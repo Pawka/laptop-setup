@@ -8,8 +8,13 @@
       - calibre
       - gnucash
       - keepassxc
-      - newsboat
       - syncthing
+
+- name: install snap packages
+  become: true
+  snap:
+    name:
+      - newsboat
 
 - name: setup syncthing startup
   become: true
