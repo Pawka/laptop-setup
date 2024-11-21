@@ -8,6 +8,7 @@
       - exiftool
       - gimp
       - imagemagick
+      - pulseaudio
       - qrencode
       - vlc
 
