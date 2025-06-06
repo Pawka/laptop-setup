@@ -6,6 +6,7 @@
     state: present
     name:
       - autojump
+      - alacritty
       - cmake
       - curl
       - direnv
@@ -79,6 +80,3 @@
     src: "{{ansible_env.HOME}}/soft/nvim.appimage"
     dest: "{{ansible_env.HOME}}/bin/nvim"
     state: link
-
-- name: include st.yml task
-  include_tasks: st.yml

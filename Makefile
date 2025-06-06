@@ -12,7 +12,7 @@ all:
 
 .PHONY: home
 home: setup
-	ansible-playbook -i '127.0.0.1' -K home.yml --skip-tags '$(SKIP_TAGS)'
+	ansible-playbook -v -i '127.0.0.1' -K home.yml --skip-tags '$(SKIP_TAGS)'
 
 .PHONY: work
 work: setup
