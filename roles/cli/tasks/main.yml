@@ -71,8 +71,8 @@
 - name: install latest neovim
   become: true
   get_url:
-    url: https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-    dest: "{{ansible_env.HOME}}/soft/"
+    url: https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage
+    dest: "{{ansible_env.HOME}}/soft/nvim.appimage"
     mode: 0755
 
 - name: Create nvim symlink
